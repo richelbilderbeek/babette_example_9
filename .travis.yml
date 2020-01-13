@@ -2,23 +2,6 @@ language: r
 dist: bionic
 cache: packages
 
-r_packages:
-  - devtools
-  - ggplot2
-  - hunspell
-  - nLTT
-  - xml2
-  - xtable
-
-r_github_packages:
-  - Giappo/mbd
-  - jimhester/covr
-  - jimhester/lintr
-  - ropensci/spelling
-
-bioc_packages:
-  - ggtree
-
 before_install:
   - echo $TRAVIS_R_VERSION_STRING
   # ImageMagick
@@ -30,10 +13,6 @@ before_install:
   # Java
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then R CMD javareconf; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then R --quiet -e 'install.packages("rJava", type="source", repos="http://cran.us.r-project.org")'; fi
-  # Check dead links
-  - sudo apt-get install -qq npm
-  - npm config set strict-ssl false
-  - sudo npm install -g markdown-link-check
 
 before_script:
   - Rscript -e "beastier::install_beast2()"
@@ -45,7 +24,4 @@ script:
   - travis_wait 60 Rscript example_9.R
   # Check if all files are created
   - if [ ! -f result.png ]; then echo "file 'result.png' not found" ; exit 1 ; fi
-  # Check dead links
-  - rm .travis.yml
-  - ./scripts/check_dead_links
 
