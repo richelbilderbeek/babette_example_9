@@ -1,6 +1,6 @@
-Package: BabetteExample1
+Package: BabetteExample9
 Type: Package
-Title: Babette Example One
+Title: Babette Example Nine
 Version: 1.0
 Authors@R: c(
   person("Richel", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")))
