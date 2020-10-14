@@ -1,9 +1,6 @@
 language: r
 cache: packages
 
-r_packages:
-  - testthat
-
 before_install:
   # Fix rJava error, from https://travis-ci.community/t/cannot-connect-to-java-from-r/9754/8
   - sudo $(which R) CMD javareconf
